@@ -1,19 +1,14 @@
 #!/bin/bash
-# Script qui compte le nombre de fichiers dans un répertoire donné en argument
+# Ce script compte le nombre de fichiers dans un dossier donné en argument
 
-# Vérifie que l'utilisateur a fourni un argument
-if [ $# -eq 0 ]; then
-  echo "Usage: $0 <nom_du_repertoire>"
-  exit 1
-fi
+# Le nom du dossier est donné en argument
+dossier=$1
 
-dossier="$1"
-
-# Vérifie si le dossier existe
+# Vérifie que le dossier existe
 if [ -d "$dossier" ]; then
-  # Compte les fichiers (en ignorant les dossiers)
+  # Compte les fichiers dans le dossier (pas les dossiers)
   nb_fichiers=$(ls -p "$dossier" | grep -v / | wc -l)
   echo "Le dossier $dossier contient $nb_fichiers fichier(s)."
 else
-  echo "Le dossier n'existe pas."
+  echo "Le dossier $dossier n'existe pas."
 fi
