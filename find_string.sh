@@ -1,22 +1,22 @@
 #!/bin/bash
-# Script pour rechercher une chaîne de caractères dans un fichier
+# Ce script cherche une chaîne dans un fichier
 
-# Demande le nom du fichier
 echo "Entrez le nom du fichier :"
-read file
+read fichier
 
-# Demande la chaîne à rechercher
-echo "Entrez la chaîne à rechercher :"
-read string
+echo "Entrez la chaîne à chercher :"
+read chaine
 
 # Vérifie si le fichier existe
-if [ -f "$file" ]; then
-    # Recherche de la chaîne avec grep
-    if grep -q "$string" "$file"; then
-        echo "La chaîne '$string' a été trouvée dans $file."
-    else
-        echo "La chaîne '$string' n'a pas été trouvée dans $file."
-    fi
+if [ -f "$fichier" ]; then
+  # Utilise grep pour chercher la chaîne
+  grep "$chaine" "$fichier" > /dev/null
+
+  if [ $? -eq 0 ]; then
+    echo "La chaîne '$chaine' a été trouvée dans $fichier."
+  else
+    echo "La chaîne '$chaine' n'a pas été trouvée dans $fichier."
+  fi
 else
-    echo "Le fichier '$file' n'existe pas."
+  echo "Le fichier n'existe pas."
 fi
