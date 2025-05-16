@@ -1,17 +1,16 @@
-#!/bin/bah
-#ce sript permet d'afficher les scripts ligne par ligne
+#!/bin/bash
+# Ce script affiche l'utilisation du disque
 
-#afficher l'utilisation du disk de façon lisible
+# Affiche l'utilisation du disque globalement
 df -h
 
-# Demande à l'utilisateur d entre plusieurs valeurs
-echo "Entrez le nom d'un dossier pour voir son poids :"
+echo
+echo "Entrez le nom d'un dossier pour voir sa taille :"
 read dossier
 
-#verifier si le dossier existe
-if [-d "$dossier" ]; then
-# affiche la taille du dossier
-du -sh "dossier"
+# Vérifie si le dossier existe
+if [ -d "$dossier" ]; then
+  du -sh "$dossier"
 else
-echo "Le dossier '$dossier' n'existe pas"
+  echo "Le dossier '$dossier' n'existe pas."
 fi

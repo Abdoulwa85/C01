@@ -1,20 +1,19 @@
 #!/bin/bash
+# Ce script fait une opération entre deux nombres
 
-# scrit de calculatrice simple : prend deux nombres et l'operateur
+# Demande à l'utilisateur d'entrer deux nombres et un opérateur
+read -p "Entrez deux nombres et un opérateur (ex: 8 3 +) : " a b op
 
-# lire trois valeurs sur une seule ligne
-read -p "Entrez deux nombres et un opérateur (ex: 8 3 +) :" a b op
-
-# Bloc conditionnel pour traiter chaque operateur
+# Vérifie l'opérateur et fait le calcul
 if [ "$op" = "+" ]; then
-resultat=$((a + b))
+  resultat=$((a + b))
 elif [ "$op" = "-" ]; then
-resultat=$((a - b))
+  resultat=$((a - b))
 elif [ "$op" = "*" ]; then
-resultat=$((a * b))
-elif [ "op" = "/" ]; then
-resultat=$(a / b))
+  resultat=$((a * b))
+elif [ "$op" = "/" ]; then
+  resultat=$((a / b))
 fi
 
-# affichage du resultat
-echo "Resultat : $resultat"
+# Affiche le résultat
+echo "Résultat : $resultat"
