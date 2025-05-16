@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Vérifie que trois arguments sont fournis
+if [ $# -ne 3 ]; then
+  echo "Usage: ./simple_calculator.sh <nombre1> <nombre2> <operateur>"
+  exit 1
+fi
+
+a=$1
+b=$2
+op=$3
+
+case "$op" in
+  +)
+    echo "Résultat : $((a + b))"
+    ;;
+  -)
+    echo "Résultat : $((a - b))"
+    ;;
+  \*)
+    echo "Résultat : $((a * b))"
+    ;;
+  /)
+    if [ "$b" -eq 0 ]; then
+      echo "Erreur : division par zéro."
+    else
+      echo "Résultat : $((a / b))"
+    fi
+    ;;
+  *)
+    echo "Opérateur non compris."
+    ;;
+esac
