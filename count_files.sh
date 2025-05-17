@@ -1,6 +1,8 @@
 #!/bin/bash
-# ça nous permet de créer un script qui compte le nombre de fichiers
 
-read myfolder
-repertoire="$(ls "$myfolder" | wc -l)"
-echo "Le dossier "$myfolder" continent "$repertoire" fichier(s)."
+# Demande à l'utilisateur de saisir le chemin du répertoire
+read a
+# Vérifier que le chemin entré est bien un répertoire
+n="$(ls "$a" | wc -l)"
+b=$(echo $n)
+echo "Le dossier "$a" contient "$b" fichier(s)."
