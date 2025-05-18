@@ -1,11 +1,9 @@
 #!/bin/bash
 # un script qui compte le nombre de fichiers dans un répertoire
-read myfolder
-count=0
-for file in $(ls "$myfolder"); do
-if [ -f "$myfolder/$file" ]; then
-count=$((count + 1))
+read Myfolder
+#comptage des fichiers
+count=$(ls "$Myfolder" | wc -l)
+if [ "$count" ]; then
+#Affichage du nombre de fichies dans le répzrtoire
+echo "Le dossier $Myfolder conient $count fichier(s)."
 fi
-done
-
-echo " Le dossier $myfolder contient $count fichier(s)."
