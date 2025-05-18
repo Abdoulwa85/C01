@@ -1,10 +1,11 @@
 #!/bin/bash
-# Ce script rechercje une chaîne de caractère
-read filename # Demande à l'utilisateur de saisir le nom du fichier
-read chaine # Demande à l'utilisateur de saisir le nom de la chaine
-# utilisation du grep -q
-if grep -q "$chaine" "$filename"; then
-echo "La chaine '$chaine' a été trouvée dans $filename."
+# un script qui recherche une chaine spécifique dans un fichier
+read fichier
+
+read chaine
+
+if grep -q "$fichier" "$chaine"; then
+echo "La chaine '$chaine' a été trouvée dans $fichier."
 else
-echo "La chaine '$chaine' a été trouvée dans $filename."
+echo "La chaine '$chaine' n'a pas été trouvée dans $fichier."
 fi
